@@ -30,7 +30,7 @@ jobs:
     name: Build Project ${{ matrix.os_short }}
     runs-on: ${{ matrix.os }}
     env:
-      SDKS: '["l4d","l4d2"]'
+      SDKS: '["css", "l4d"]'
 
     steps:
       - name: Setup Environment
@@ -94,11 +94,11 @@ jobs:
         run: |
           git clone --recursive https://github.com/alliedmodders/sourcemod -b 1.11-dev
 
-      - name: Prepare L4D SDK
+      - name: Prepare CSS SDK
         working-directory: alliedmodders
         run: |
           git clone --mirror https://github.com/alliedmodders/hl2sdk hl2sdk-proxy-repo
-          git clone hl2sdk-proxy-repo hl2sdk-l4d2 -b l4d2
+          git clone hl2sdk-proxy-repo hl2sdk-css -b css
           git clone hl2sdk-proxy-repo hl2sdk-l4d -b l4d
           
       - name: Prepare Metamod Source
